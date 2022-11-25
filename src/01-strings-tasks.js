@@ -19,8 +19,9 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  //throw new Error('Not implemented');
-  return value1+value2
+  // throw new Error('Not implemented');
+  const a = `${value1}${value2}`;
+  return a;
 }
 
 
@@ -36,7 +37,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  return value.length
+  return value.length;
 }
 
 /**
@@ -53,8 +54,8 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  //throw new Error('Not implemented');
-  return `Hello, ${firstName} ${lastName}`
+  // throw new Error('Not implemented');
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -68,9 +69,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  //throw new Error('Not implemented');
-  let name = value.split(', ')[1]
-  return name.slice(0, name.length-1)
+  // throw new Error('Not implemented');
+  const name = value.split(', ')[1];
+  return name.slice(0, name.length - 1);
 }
 
 
@@ -85,8 +86,8 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  //throw new Error('Not implemented');
-  return value[0]
+  // throw new Error('Not implemented');
+  return value[0];
 }
 
 /**
@@ -101,8 +102,8 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-  //throw new Error('Not implemented');
-  value.trim()
+  // throw new Error('Not implemented');
+  return value.trim();
 }
 
 /**
@@ -116,13 +117,8 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
- function repeatString(value, count) {
-  //throw new Error('Not implemented');
-  let a = ''
-  for (let i=0; i<count; i++){
-    a +=value
-  }
-  return a
+function repeatString(value, count) {
+  return value.repeat(count);
 }
 
 /**
@@ -138,7 +134,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  return str.replace(value, '') 
+  return str.replace(value, '');
 }
 
 /**
@@ -153,8 +149,8 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  //throw new Error('Not implemented');
-  return str.slice(1, str.length-1)
+  // throw new Error('Not implemented');
+  return str.slice(1, str.length - 1);
 }
 
 
@@ -169,8 +165,8 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-  //throw new Error('Not implemented');
-  return str.toUpperCase()
+  // throw new Error('Not implemented');
+  return str.toUpperCase();
 }
 
 /**
@@ -189,8 +185,8 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  //throw new Error('Not implemented');
-  return str.split(';')
+  // throw new Error('Not implemented');
+  return str.split(';');
 }
 
 /**
@@ -217,25 +213,25 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  //throw new Error('Not implemented');
-  let result = ''
-  let top ='┌'
-  let middle = '|'
-  let bottom = '└'
-  for(let i = 0; i<width-1; i++){
-    top +='─'
-    middle +=' '
-    bottom += '─'
+  // throw new Error('Not implemented');
+  let result = '';
+  let top = '┌';
+  let middle = '│';
+  let bottom = '└';
+  for (let i = 0; i < width - 2; i += 1) {
+    top += '─';
+    middle += ' ';
+    bottom += '─';
   }
-  top += '┐\n'
-  middle +='|\n'
-  bottom +='┘\n'
-  result += top
-  for(let i = 0; i<height-2; i++){
-    result += middle
+  top += '┐\n';
+  middle += '│\n';
+  bottom += '┘\n';
+  result += top;
+  for (let i = 0; i < height - 2; i += 1) {
+    result += middle;
   }
-  result += bottom
-  return result
+  result += bottom;
+  return result;
 }
 
 
@@ -256,19 +252,18 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  //throw new Error('Not implemented');
-  let input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-  let output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
-  let db = {}
-  let result = ''
-  for(let i = 0; i<input.length; i++){
-      db[input[i]]=output[i]
+  // throw new Error('Not implemented');
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz !?.,:';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm !?.,:';
+  const db = {};
+  let result = '';
+  for (let i = 0; i < input.length; i += 1) {
+    db[input[i]] = output[i];
   }
-  for(let i=0; i<str.length; i++){
-      console.log(str[i])
-      result += db[str[i]]
+  for (let i = 0; i < str.length; i += 1) {
+    result += db[str[i]];
   }
-  return result
+  return result;
 }
 
 /**
@@ -285,11 +280,11 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  let a = value
-  //console.log(typeof a[0])
-  if (typeof a=== 'string' || typeof a[0]=== 'string'){
-      return true
-  } else {return false}
+  const a = value;
+  // console.log(typeof a[0])
+  if (typeof a === 'string' || a instanceof String) {
+    return true;
+  } return false;
 }
 
 
@@ -318,12 +313,12 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  //throw new Error('Not implemented');
-  db = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-        'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-        'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-        'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠']
-  return db.indexOf(value)
+  // throw new Error('Not implemented');
+  const db = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  return db.indexOf(value);
 }
 
 
